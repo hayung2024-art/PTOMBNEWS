@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PTOMB NEWS - Chief Editor Dashboard</title>
+
+<link rel="stylesheet" href="chief-editor.css">
+
+</head>
+
+<body>
+  
+<script>
+const USER_ID = "9362963283";
+const PASSWORD = "12";
+
+const user = prompt("Enter Chief Editor User ID:");
+const pass = prompt("Enter Chief Editor Password:");
+
+if (user !== USER_ID || pass !== PASSWORD) {
+    alert("Invalid User ID or Password!");
+    window.location.href = "index.html";
+}
+</script>
+
+<div class="sidebar">
+
+<h2>PTOMB NEWS</h2>
+
+<a href="#" class="active">🏠 Dashboard</a>
+
+<a href="admin.html">📰 News Manager</a>
+
+<a href="ads.html">📢 Advertisement</a>
+
+<a href="staff.html">👥 Staff</a>
+
+<a href="#">⚙ Settings</a>
+
+<button onclick="logout()">🚪 Logout</button>
+
+</div>
+
+<div class="main">
+
+<h1>Chief Editor Dashboard</h1>
+
+<div class="cards">
+
+<div class="card">
+<h2>Total News</h2>
+<h1 id="totalNews">0</h1>
+</div>
+
+<div class="card">
+<h2>Total Ads</h2>
+<h1 id="totalAds">0</h1>
+</div>
+
+<div class="card">
+<h2>Total Staff</h2>
+<h1 id="totalStaff">0</h1>
+</div>
+
+</div>
+
+<hr>
+
+<h2>Search News</h2>
+
+<input
+type="text"
+id="newsSearch"
+placeholder="Search News..."
+onkeyup="searchNews()">
+
+<br><br>
+
+<div id="newsList"></div>
+
+<hr>
+
+<h2>Search Advertisement</h2>
+
+<input
+type="text"
+id="adSearch"
+placeholder="Search Advertisement..."
+onkeyup="searchAds()">
+
+<br><br>
+
+<div id="adsList"></div>
+
+</div>
+
+<script src="chief-editor.js"></script>
+
+</body>
+</html>
