@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>PTOMB NEWS</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+.news-container{
+max-width:900px;
+margin:30px auto;
+background:#fff;
+padding:20px;
+border-radius:10px;
+box-shadow:0 0 10px rgba(0,0,0,.2);
+}
+
+.news-container img{
+width:100%;
+border-radius:10px;
+margin-bottom:20px;
+}
+
+.news-container iframe{
+width:100%;
+height:450px;
+margin-top:20px;
+border:none;
+}
+
+.meta{
+color:gray;
+margin:15px 0;
+}
+
+.back{
+margin:20px;
+display:inline-block;
+text-decoration:none;
+background:#d60000;
+color:#fff;
+padding:10px 20px;
+border-radius:5px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<a href="index.html" class="back">← Back to Home</a>
+
+<div class="news-container">
+
+<h1 id="title"></h1>
+
+<p class="meta">
+
+Category :
+<span id="category"></span>
+
+|
+
+Date :
+<span id="date"></span>
+
+</p>
+
+<img id="image">
+
+<p id="description"></p>
+
+<div id="videoContainer"></div>
+
+</div>
+
+<script>
+
+let index=new URLSearchParams(window.location.search).get("id");
+
+let news=JSON.parse(localStorage.getItem("news"))||[];
+
+let article=news[index];
+
+if(article){
+
+document.getElementById("title").innerHTML=article.title;
+
+document.getElementById("category").innerHTML=article.category;
+
+document.getElementById("date").innerHTML=article.date;
+
+document.getElementById("image").src=article.image;
+
+document.getElementById("description").innerHTML=article.description;
+
+if(article.video!=""){
+
+let video=article.video.replace("watch?v=","embed/");
+
+document.getElementById("videoContainer").innerHTML=
+
+'<iframe src="'+video+'" allowfullscreen></iframe>';
+
+}
+
+}else{
+
+document.querySelector(".news-container").innerHTML=
+
+"<h2>News Not Found</h2>";
+
+}
+
+</script>
+
+</body>
+</html>
