@@ -1,0 +1,223 @@
+/* ==========================
+   PTOMB NEWS - style.css
+========================== */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#f4f4f4;
+color:#222;
+}
+
+/* Header */
+
+header{
+background:#d60000;
+color:#fff;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 30px;
+flex-wrap:wrap;
+}
+
+.logo h1{
+font-size:30px;
+}
+
+nav{
+display:flex;
+flex-wrap:wrap;
+gap:15px;
+}
+
+nav a{
+color:#fff;
+text-decoration:none;
+font-weight:bold;
+padding:8px 12px;
+border-radius:5px;
+transition:.3s;
+}
+
+nav a:hover{
+background:#fff;
+color:#d60000;
+}
+
+/* Breaking News */
+
+.breaking-news{
+background:#111;
+color:#fff;
+padding:10px;
+font-weight:bold;
+}
+
+/* Search */
+
+.search-box{
+padding:20px;
+text-align:center;
+}
+
+.search-box input{
+width:90%;
+max-width:600px;
+padding:12px;
+font-size:16px;
+border:1px solid #ccc;
+border-radius:5px;
+}
+
+/* Advertisement */
+
+#advertisement{
+padding:20px;
+}
+
+#advertisement h2{
+margin-bottom:15px;
+color:#d60000;
+}
+
+#adContainer,
+#adsContainer{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.ad-card{
+background:#fff;
+padding:15px;
+border-radius:10px;
+box-shadow:0 2px 8px rgba(0,0,0,.15);
+text-align:center;
+}
+
+.ad-card img,
+.ad-card video{
+width:100%;
+border-radius:8px;
+margin-bottom:10px;
+}
+
+/* Latest News */
+
+.latest-news{
+padding:20px;
+}
+
+.latest-news h2{
+margin-bottom:20px;
+color:#d60000;
+}
+
+#newsContainer{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:20px;
+}
+
+/* News Card */
+
+.news-card{
+background:#fff;
+border-radius:10px;
+overflow:hidden;
+box-shadow:0 2px 10px rgba(0,0,0,.15);
+transition:.3s;
+}
+
+.news-card:hover{
+transform:translateY(-5px);
+}
+
+.news-card img{
+width:100%;
+height:220px;
+object-fit:cover;
+}
+
+.news-content{
+padding:15px;
+}
+
+.news-content h3{
+margin-bottom:10px;
+color:#d60000;
+}
+
+.news-content p{
+margin-bottom:10px;
+line-height:1.6;
+}
+
+.news-date{
+font-size:13px;
+color:gray;
+margin-bottom:10px;
+}
+
+.news-content button{
+background:#d60000;
+color:#fff;
+border:none;
+padding:10px 20px;
+cursor:pointer;
+border-radius:5px;
+transition:.3s;
+}
+
+.news-content button:hover{
+background:#a50000;
+}
+
+/* Footer */
+
+footer{
+margin-top:40px;
+background:#111;
+color:#fff;
+text-align:center;
+padding:20px;
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+header{
+flex-direction:column;
+text-align:center;
+}
+
+nav{
+justify-content:center;
+margin-top:15px;
+}
+
+.logo h1{
+font-size:24px;
+}
+
+.search-box input{
+width:100%;
+}
+
+#newsContainer{
+grid-template-columns:1fr;
+}
+
+#adContainer,
+#adsContainer{
+grid-template-columns:1fr;
+}
+
+}
