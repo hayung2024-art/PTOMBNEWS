@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PTOMB NEWS Admin Dashboard</title>
+<link rel="stylesheet" href="admin.css">
+</head>
+<body>
+<script>
+if(sessionStorage.getItem("adminLogin")!=="true"){location.href="admin-login.html";}
+</script>
+<div class="sidebar">
+<h2>PTOMB NEWS</h2>
+<ul>
+<li onclick="showPage('dashboard')">🏠 Dashboard</li>
+<li onclick="showPage('news')">📰 News</li>
+<li onclick="showPage('ads')">📢 Advertisements</li>
+<li onclick="showPage('staff')">👥 Staff</li>
+<li onclick="showPage('settings')">⚙ Settings</li>
+<li onclick="logout()">🚪 Logout</li>
+</ul>
+</div>
+<div class="main">
+<h1>Admin Dashboard</h1>
+<p>Welcome <b id="username"></b> (<span id="role"></span>)</p>
+
+<div id="dashboard" class="page">
+<div class="cards">
+<div class="card"><h2>Total News</h2><h1 id="totalNews">0</h1></div>
+<div class="card"><h2>Total Ads</h2><h1 id="totalAds">0</h1></div>
+<div class="card"><h2>Total Staff</h2><h1 id="totalStaff">0</h1></div>
+</div>
+</div>
+
+<div id="news" class="page" style="display:none">
+<h2>Publish News</h2>
+<input id="title" placeholder="News Title">
+<input id="image" type="file">
+<input id="video" placeholder="YouTube Video Link">
+<select id="category">
+<option>Breaking</option><option>National</option><option>International</option>
+<option>Sports</option><option>Technology</option>
+<option>Business</option><option>Entertainment</option>
+</select>
+<textarea id="description" placeholder="News Description"></textarea>
+<button onclick="saveNews()">Publish News</button>
+<hr><div id="newsList"></div>
+</div>
+
+<div id="ads" class="page" style="display:none">
+<h2>Advertisement Manager</h2>
+<select id="adType">
+<option value="image">Image</option>
+<option value="video">Video</option>
+<option value="text">Text</option>
+</select>
+<input id="adFile" type="file">
+<textarea id="adText" placeholder="Advertisement Text"></textarea>
+<input id="adLink" placeholder="Sponsor Link">
+<button onclick="saveAdvertisement()">Publish Advertisement</button>
+<hr><div id="adsList"></div>
+</div>
+
+<div id="staff" class="page" style="display:none">
+<h2>Staff Management</h2>
+<input id="staffName" placeholder="Full Name">
+<input id="staffUsername" placeholder="Username">
+<input id="staffPassword" placeholder="Password">
+<select id="staffRole">
+<option value="staff">Staff</option>
+<option value="editor">Editor</option>
+<option value="admin">Admin</option>
+</select>
+<button onclick="addStaff()">Add Staff</button>
+<hr><div id="staffList"></div>
+</div>
+
+<div id="settings" class="page" style="display:none">
+<h2>Settings</h2>
+<p>Website: PTOMB NEWS</p>
+<p>Version: 1.0</p>
+</div>
+
+</div>
+
+<script src="admin.js"></script>
+<script>
+document.getElementById("username").textContent=sessionStorage.getItem("username")||"";
+document.getElementById("role").textContent=sessionStorage.getItem("role")||"";
+
+function showPage(id){
+document.querySelectorAll(".page").forEach(p=>p.style.display="none");
+document.getElementById(id).style.display="block";
+}
+
+function logout(){
+sessionStorage.clear();
+location.href="admin-login.html";
+}
+
+const role=sessionStorage.getItem("role");
+if(role!=="admin"){
+const staffItem=document.querySelector("li:nth-child(4)");
+if(staffItem) staffItem.style.display="none";
+}
+</script>
+</body>
+</html>
