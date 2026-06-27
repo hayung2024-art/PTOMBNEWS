@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PTOMB NEWS</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+<header>
+
+<div class="logo">
+<h1>PTOMB NEWS</h1>
+</div>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="#">National</a>
+<a href="#">International</a>
+<a href="#">Sports</a>
+<a href="#">Technology</a>
+<a href="#">Entertainment</a>
+<a href="admin-login.html">Admin Login</a>
+</nav>
+
+</header>
+
+<div class="breaking-news">
+<marquee>
+🔴 Breaking News will appear here...
+</marquee>
+</div>
+
+<section class="search-box">
+
+<input
+type="text"
+id="search"
+placeholder="Search News...">
+
+</section>
+
+<section id="advertisement">
+
+<h2>Sponsored</h2>
+
+<div id="adsContainer"></div>
+
+</section>
+
+<section class="latest-news">
+
+<h2>Latest News</h2>
+
+<div id="newsContainer"></div>
+
+</section>
+
+<footer>
+
+<p>
+
+© 2026 PTOMB NEWS |
+All Rights Reserved
+
+</p>
+
+</footer>
+
+<script src="script.js"></script>
+
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyD98lYfj3EdFF9vTZVu3kWnaR-3TEB-bWQ",
+    authDomain: "ptombnews.firebaseapp.com",
+    projectId: "ptombnews",
+    storageBucket: "ptombnews.firebasestorage.app",
+    messagingSenderId: "1004075702472",
+    appId: "1:1004075702472:web:4f2d666867d43580782dfd",
+    measurementId: "G-CYFSQLBDQ7"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script>
+
+</body>
+</html>
